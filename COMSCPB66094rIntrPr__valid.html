@@ -1,0 +1,244 @@
+<html>
+<head>
+ <title>Js Validation</title>     
+
+
+ <script type="text/javascript">
+ function validateForm()
+  {
+   var name=document.getElementById("Name").value;
+   var age=document.getElementById("age").value;
+   var gender= document.getElementsByName("gender");
+   var adress=document.getElementById("ad").value;
+ var e = document.getElementById("state");
+var strUser = e.options[e.selectedIndex].value;
+   var no=document.getElementById("phone").value;
+   var x=document.getElementById("e").value;
+   
+   
+ 
+   if(name=="")
+   {
+   alert("Name field empty");
+   return false;
+   }
+   else
+   {
+   for(i=0;i<name.length;i++)
+    if(!((name.charAt(i)>='a'&&name.charAt(i)<='z')||(name.charAt(i)>='A'&&name.charAt(i)<='Z')))
+    {
+    alert("enter apphabets only in name field");
+    return false;
+    }
+   }
+   
+   if(name.length<5)
+   {
+   alert("username length should greater than 5 ");
+   return false;
+   }
+   
+   
+   if(age=="")
+   {
+   alert("Age field empty");
+   return false;
+   }
+   
+   if(age<1||age>120)
+   {
+    alert("Age value between 1 and 120 ");
+    return false;
+   }
+   else
+   {
+   for(i=0;i<age.length;i++)
+    if(!(age.charAt(i)>='0'&&age.charAt(i)<='9'))
+    {
+    alert("enter  number only in age field");
+    return false;
+    }
+   }
+	var ab=document.getElementById("yr").value;
+	var bc=document.getElementById("age").value;
+	var ca=2019;var ag=ca-ab;
+	if(!(ag==bc))
+	{
+	alert("Your age is not matching with year of birth!");
+	}
+
+     if ( (gender[0].checked == false ) && ( gender[1].checked == false ) ) 
+{
+alert ( "Please choose your Gender: Male or Female" ); 
+return false;
+}
+   
+   
+   
+   if(adress=="")
+   {
+   alert("Address field empty");
+   return false;
+   }
+
+
+if(strUser==0) 
+{
+alert("Please select your state");
+return false;
+}
+
+
+   
+   if(no=="")
+   {
+   alert("phone field empty");
+   return false;
+   }
+      
+   if(no.length>10||no.length<10)
+   {
+   alert("invalid phone number");
+   return false;
+   }
+   else
+   {
+    for(i=0;i<no.length;i++)
+    if(!(no.charAt(i)>='0'&&no.charAt(i)<='9'))
+    {
+    alert("enter   only numbers in phone field");
+    return false;
+    }
+   }
+   
+    
+   if(x=="")
+   {
+   alert("email field empty");
+   return false;
+   }
+   else
+   {
+    var atpos=x.indexOf("@");
+    var dotpos=x.lastIndexOf(".");
+    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+    {
+    alert("Not a valid e-mail address");
+    return false;
+    }
+    }
+	var inputtxt=document.getElementById("pas");
+	var conf=document.getElementById("con").value;
+	var paswd=  /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,15}$/;
+	if(inputtxt.value.match(paswd)) 
+	{ 
+		if(inputtxt.value==conf)
+		{
+		return true;
+		}
+		else
+		{
+		alert("Paswword does not match");
+		return false;
+		}
+	}
+	else
+	{ 
+	alert('Wrong...!')
+	return false;
+	}
+ }
+function year()
+{
+	
+}
+ function userid()
+{
+	var a=document.getElementById("e").value;
+        var l=a.indexOf("@");
+	var b = a.substring(0,l);
+	document.getElementById("u").value=b;
+}
+function move() {
+var inputtxt=document.getElementById("pas");
+	var conf=document.getElementById("con").value;
+	var paswd=  /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,15}$/;
+	if(inputtxt.value.match(paswd)) 
+	{ 
+  var elem = document.getElementById("myBar");   
+  var width = 1;
+  var id = setInterval(frame, 10);
+  function frame() {
+    if (width >= 100) {
+      clearInterval(id);
+    } else {
+      width++; 
+      elem.style.width = width + '%'; 
+    }
+  }
+}}
+</script>
+<style type=text/css> 
+         .1 
+         { 
+         float: left; 
+         } 
+         .2
+         { 
+         float: left; 
+ 	 background-color:lightblue;
+         } 
+         .3 
+         { 
+         float: left; 
+         } 
+         div{ 
+         padding : 1%;  
+         color:black;
+	 background-color:skyblue;
+         width: 30%;         
+	} 
+#myProgress {
+  width: 100%;
+  background-color: #ddd;
+}
+
+#myBar {
+  width: 1%;
+  height: 30px;
+  background-color: #4CAF50;
+}
+      </style> 
+</head>
+<body>
+<center>User Registration
+<div class="1"></div>
+<div class="2"><form  name="UserReg" action="User.html" method="post"  onSubmit="return validateForm()">
+<p>Name :<input type="text"  id="Name" size="25"   /></p></br>
+<p>Age  :<input type="text" id="age" size="25"  /></p></br>
+<p>Year of birth  :<input type="text" id="yr" size="25"/></p></br>
+<p>Gender  :<input type="radio" name="gender" value="male"> Male
+	 <input type="radio" name="gender" value="female"> Female</p></br>
+<p>Adress  :<textarea rows="3" cols="25" id="ad"></textarea></p></br>
+<p>State  :
+   <select id="state">
+   <option value="0">select</option>
+  <option value="1">Kerala</option>
+  <option value="2">Karnataka</option>
+  <option value="3">AndraPradesh</option>
+  <option value="4">Tamilnadu</option>
+</select></p></br>
+<p>Mob_No  :<input type="text" id="phone" size="25"  /></p></br>
+<p>	Email_id :<input type="text" id="e" size="25" oninput="userid();"></p></br>
+<p>	User_id :<input type="text" id="u" size="25"  /></p></br>
+<p>Password  :<input type=password id=pas oninput="move();"></p><br><div id="myProgress">
+  <div id="myBar"></div>
+</div></br>
+<p>Confirm password  :<input type=password id=con></p><br>
+<p>	<input type="submit" value="Submit" name="UserReg"/>   <input type="reset" value="Reset" name="UserReg"/></p>
+</form>
+</div>
+<div class="3"></div>
+</center>
+</body>
+</html>
